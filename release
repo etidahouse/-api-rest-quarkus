@@ -13,7 +13,7 @@ PLATFORMS="linux/amd64,linux/arm64,linux/arm/v7"
 # Run Docker build
 docker buildx create --use
 docker buildx inspect --bootstrap
-docker buildx build --platform $PLATFORMS -t $REPOSITORY:latest -f $DOCKERFILE .
+docker buildx build --push --platform $PLATFORMS -t $REPOSITORY:latest -f $DOCKERFILE .
 
 # Log out from Docker
 docker logout

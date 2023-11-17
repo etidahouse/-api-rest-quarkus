@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:17.0.1
 
 COPY ./target/api-rest.jar /opt/api-rest.jar
 
