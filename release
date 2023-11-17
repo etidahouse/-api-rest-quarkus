@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Your Docker Hub repository and Dockerfile
+REPOSITORY="barns/api-rest-quarkus"
+DOCKERFILE="release.dockerfile"
+
+# Log in to Docker
+echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+# Build for multiple platforms
+PLATFORMS="linux/amd64,linux/arm64,linux/arm/v7"
+
+# Run Docker build
+docker buildx create --use
+docker buildx inspect --bootstrap
+docker buildx build --platform $PLATFORMS -t $REPOSITORY:latest -f $DOCKERFILE .
+
+# Log out from Docker
+docker logout
