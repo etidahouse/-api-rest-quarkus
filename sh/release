@@ -7,7 +7,7 @@ PARENT_DIR="$(dirname "$SH_DIR")"
 
 # Your Docker Hub repository and Dockerfile
 REPOSITORY="etidahouse/api-rest-quarkus"
-DOCKERFILE="release.dockerfile"
+DOCKERFILE="release.Dockerfile"
 
 # Log in to Docker
 echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
