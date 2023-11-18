@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+SH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+PARENT_DIR="$(dirname "$SH_DIR")"
+
 # Your Docker Hub repository and Dockerfile
 REPOSITORY="barns/api-rest-quarkus"
 DOCKERFILE="release.dockerfile"
@@ -13,7 +18,7 @@ PLATFORMS="linux/amd64,linux/arm64,linux/arm/v7"
 # Run Docker build
 docker buildx create --use
 docker buildx inspect --bootstrap
-docker buildx build --push --platform $PLATFORMS -t $REPOSITORY:latest -f $DOCKERFILE .
+docker buildx build --push --platform $PLATFORMS -t $REPOSITORY:latest -f "$PARENT_DIR/$DOCKERFILE" .
 
 # Log out from Docker
 docker logout

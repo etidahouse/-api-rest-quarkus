@@ -28,7 +28,8 @@ echo "$WORKING_DIR" Publishing...
 
 docker run --rm \
     --name "$WORKING_DIR"-publish \
-    -v "$SH_DIR":/opt/maven/ \
+    -v "$PARENT_DIR":/opt/maven/ \
+    -v "$PARENT_DIR"/.m2:/root/.m2/repository \
     -w /opt/maven \
     -e REPO_USERNAME \
     -e REPO_TOKEN \
