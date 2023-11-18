@@ -1,60 +1,36 @@
-# api-rest
+# Simple Spring REST API
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This project is a simple Spring REST API with an endpoint that returns a "Hello, World!" message. It's set up with GitHub Actions CI/CD workflows to automate various tasks.
+Features:
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+    Hello Endpoint: Access the /api/hello endpoint to receive a "Hello, World!" message.
+    GitHub Actions CI:
+        Build & Test on PR: Automatically builds and tests the project when a pull request (PR) is ready for review.
+        Build & Publish Artifact: Upon PR merge, uses Maven to build and publish the artifact to GitHub.
+    Docker Integration:
+        Builds a Docker image of the project.
+        Pushes the Docker image to Docker Hub.
 
-## Running the application in dev mode
+CI/CD Workflow:
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
-```
+    Pull Request (PR) Workflow:
+        Runs build and test jobs when a PR is created or updated.
+    Merge Workflow:
+        Automatically builds the project using Maven and publishes the artifact upon PR merge.
+        Builds a Docker image and pushes it to Docker Hub.
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+Usage:
 
-## Packaging and running the application
+    Access the /api/hello endpoint to get the "Hello, World!" message.
 
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+GitHub Actions:
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+    CI/CD workflows in .github/workflows automate build, test, and deployment tasks.
+    Ensure Docker Hub credentials and Maven settings are properly configured as secrets in GitHub repository settings.
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
+Docker:
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+    Use the Dockerfile to build a Docker image locally.
+    Docker image built and pushed to Docker Hub on PR merge.
 
-## Creating a native executable
 
-You can create a native executable using: 
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/api-rest-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Related Guides
-
-- RESTEasy Reactive ([guide](https://quarkus.io/guides/resteasy-reactive)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-
-## Provided Code
-
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
