@@ -20,7 +20,7 @@
   <distributionManagement>
       <repository>
           <id>github</id>
-          <url>https://maven.pkg.github.com/etidahouse/api-rest-quarkus</url>
+          <url>https://maven.pkg.github.com/etidahouse/spring-api-rest-ci</url>
       </repository>
   </distributionManagement>
   <repositories>
@@ -28,7 +28,7 @@
     <repository>
         <id>github</id>
         <name>GitHub OWNER Apache Maven Packages</name>
-        <url>https://maven.pkg.github.com/etidahouse/api-rest-quarkus</url>
+        <url>https://maven.pkg.github.com/etidahouse/spring-api-rest-ci</url>
         <releases>
             <enabled>true</enabled>
         </releases>
@@ -75,6 +75,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+    <finalName>spring-api-rest-ci</finalName>
 	</build>
 
 </project>
