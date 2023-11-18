@@ -6,8 +6,8 @@ SH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 PARENT_DIR="$(dirname "$SH_DIR")"
 
 # Your Docker Hub repository and Dockerfile
-REPOSITORY="barns/api-rest-quarkus"
-DOCKERFILE="release.dockerfile"
+REPOSITORY="etidahouse/api-rest-quarkus"
+DOCKERFILE="release.Dockerfile"
 
 # Log in to Docker
 echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
