@@ -15,8 +15,15 @@ echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
 # Build for multiple platforms
 PLATFORMS="linux/amd64,linux/arm64"
 
+# Check if Docker Buildx is available and create a builder instance if not exist
+if ! docker buildx &>/dev/null; then
+    echo "Docker Buildx not found. Creating a new builder instance..."
+    docker buildx create --use
+fi
+
 # Run Docker build
-docker build --push --platform $PLATFORMS -t $REPOSITORY:latest -f "$PARENT_DIR/$DOCKERFILE" "$PARENT_DIR"
+docker buildx inspect --bootstrap
+docker buildx build --push --platform $PLATFORMS -t $REPOSITORY:latest -f "$PARENT_DIR/$DOCKERFILE" "$PARENT_DIR"
 
 # Log out from Docker
 docker logout
