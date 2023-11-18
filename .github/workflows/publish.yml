@@ -17,13 +17,13 @@ jobs:
         run: docker buildx create --use
 
       - name: Run Publish
-        run: sh publish
+        run: sh/publish
         env:
           REPO_USERNAME: ${{ secrets.REPO_USERNAME }}
           REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
       - name: Release docker
-        run: sh release
+        run: sh/release
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
