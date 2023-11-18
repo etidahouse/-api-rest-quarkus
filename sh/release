@@ -6,7 +6,7 @@ SH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 PARENT_DIR="$(dirname "$SH_DIR")"
 
 # Your Docker Hub repository and Dockerfile
-REPOSITORY="etidahouse/api-rest-quarkus"
+REPOSITORY="etidahouse/spring-api-rest-ci"
 DOCKERFILE="release.dockerfile"
 
 # Log in to Docker
