@@ -1,6 +1,5 @@
 package com.example.restapi.controllers;
 
-import com.example.restapi.entities.Personne;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
