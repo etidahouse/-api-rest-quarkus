@@ -14,5 +14,5 @@ CONTAINER_RUNTIME_NAME="$CURRENT_DIR-openjdk-17"
 docker run -it --rm \
     --name "$CONTAINER_RUNTIME_NAME" \
     -v "$WORKDING_DIR"/target/spring-api-rest-ci.jar:/opt/spring-api-rest-ci.jar \
-    -p 8080:8080 \
+    -p 8085:8080 \
     $DOCKER_IMAGE java -jar /opt/spring-api-rest-ci.jar
