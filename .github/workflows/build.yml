@@ -18,6 +18,9 @@ jobs:
           git config --global user.name "GitHub Action"
           git fetch --no-tags --depth=2 origin main
 
+      - name: Debug Environment Variables
+        run: env
+
       - name: Set up Docker Buildx
         run: docker buildx create --use
 
