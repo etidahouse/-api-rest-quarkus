@@ -31,7 +31,7 @@ docker run --rm \
     -v "$PARENT_DIR":/opt/maven/ \
     -v "$PARENT_DIR"/.m2:/root/.m2/repository \
     -w /opt/maven \
-    -e REPO_USERNAME \
-    -e REPO_TOKEN \
+    -e REPO_USERNAME=etidahouse \
+    -e REPO_TOKEN=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 \
     maven:3.8.5-openjdk-17-slim \
     mvn clean deploy -s settings.xml
